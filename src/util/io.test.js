@@ -15,7 +15,7 @@ vi.mock('path', () => {
     }
 })
 
-it('should write data in data.txt without writing anything on hard drive', () => {
+it('should execute the writeFile method', () => {
     const testData = 'Gia Bao ne!';
     const testFilename = 'test.txt';
 
@@ -23,3 +23,25 @@ it('should write data in data.txt without writing anything on hard drive', () =>
 
     expect(fs.writeFile).toBeCalledWith(testFilename, testData);
 })
+
+it('should return a promise that resolves to no value if called correctly', () => {
+    const testData = 'Gia Bao ne!';
+    const testFilename = 'test.txt';
+
+    writeData(testData, testFilename)
+
+    return expect(writeData(testData, testFilename)).resolves.toBeUndefined();
+    // expect(writeData(testData, testFilename)).toBeUndefined();
+
+    // expect(fs.writeFile).toHaveBeenCalled()
+})
+
+// it('should count one time the fs.writeFile is called', () => {
+//     const testData = 'Gia Bao ne!';
+//     const testFilename = 'test.txt';
+
+//     writeData(testData, testFilename)
+
+//     // return expect(writeData(testData, testFilename)).resolves.toBeUndefined();
+//     expect(fs.writeFile).toBeCalledTimes(1)
+// })

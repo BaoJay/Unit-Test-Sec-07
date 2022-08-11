@@ -6,8 +6,9 @@ describe('generateReportData()', () => {
         // Arrange
         // this spy function is an empty function
         // const logger = vi.fn();
-        const logger = vi.fn(() => {  });
+        const logger = vi.fn(() => { });
 
+        logger.mockImplementationOnce(() => {  })
 
         // Act
         // pass the spy function to the testing function
